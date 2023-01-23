@@ -8,7 +8,7 @@ interface FeatureProps {
 }
 
 function ListItems(props:FeatureProps) {
-  const { children, ...rest } = props;
+  const { children,icon, ...rest } = props;
 
   const listData = [
     "International calling and messaging API",
@@ -21,7 +21,7 @@ function ListItems(props:FeatureProps) {
       {listData.map((data, index) => {
         return (
           <li className="flex mb-3" key={"Price" + index} {...rest}>
-            <img src="PricingIcon" className="w-6 h-6 mr-3" />
+            <img src="icon" className="w-6 h-6 mr-3" />
             <div>{data}</div>
           </li>
         );
@@ -56,7 +56,7 @@ function Pricing() {
             business.
           </div>
           <ul className="pt-6">
-            <ListItems />
+            <ListItems icon={PricingIcon} children={""} />
           </ul>
         </div>
       </div>

@@ -3,12 +3,11 @@ import React, { ElementType } from "react";
 import { PricingIcon } from "@/Icons/Icons";
 
 interface FeatureProps {
-  icon: ElementType;
   children: string
 }
 
 function ListItems(props:FeatureProps) {
-  const { children,icon, ...rest } = props;
+  const { children, ...rest } = props;
 
   const listData = [
     "International calling and messaging API",
@@ -21,8 +20,10 @@ function ListItems(props:FeatureProps) {
       {listData.map((data, index) => {
         return (
           <li className="flex mb-3" key={"Price" + index} {...rest}>
-            <img src="icon" className="w-6 h-6 mr-3" />
+            <>
+            <span className="mr-3">{PricingIcon({})}</span>
             <div>{data}</div>
+            </>
           </li>
         );
       })}
@@ -56,7 +57,7 @@ function Pricing() {
             business.
           </div>
           <ul className="pt-6">
-            <ListItems icon={PricingIcon} children={""} />
+            <ListItems children={""} />
           </ul>
         </div>
       </div>
